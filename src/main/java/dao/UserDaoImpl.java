@@ -13,10 +13,12 @@ public class UserDaoImpl implements UserDao {
         EntityManager entityManager = HibernateUtil.getEntityManagerFactory().createEntityManager();
         entityManager.getTransaction().begin();
         String query = "";
-        if (System.getProperty("storage").equals("mongo"))
+        if (System.getProperty("storage").equals("mongo")) {
             query = "db.users.find({})";
-        if (System.getProperty("storage").equals("mysql"))
+        }
+        if (System.getProperty("storage").equals("mysql")) {
             query = "SELECT * from users";
+        }
         List<User> accounts = entityManager.createNativeQuery(query, User.class).getResultList();
         entityManager.getTransaction().commit();
         entityManager.close();

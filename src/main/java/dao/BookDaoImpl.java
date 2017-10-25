@@ -14,10 +14,12 @@ public class BookDaoImpl implements BookDao {
         EntityManager entityManager = HibernateUtil.getEntityManagerFactory().createEntityManager();
         entityManager.getTransaction().begin();
         String query = "";
-        if (System.getProperty("storage").equals("mongo"))
+        if (System.getProperty("storage").equals("mongo")) {
             query = "db.books.find({})";
-        if (System.getProperty("storage").equals("mysql"))
+        }
+        if (System.getProperty("storage").equals("mysql")) {
             query = "SELECT * from books";
+        }
         List<Book> books = entityManager.createNativeQuery(query, Book.class).getResultList();
         entityManager.getTransaction().commit();
         entityManager.close();

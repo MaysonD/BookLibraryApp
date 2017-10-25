@@ -12,10 +12,10 @@ public class Book {
     private int id;
 
     @Column(name = "book_name")
-    public String name;
+    private String name;
 
     @Column(name = "book_author")
-    public String author;
+    private String author;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")

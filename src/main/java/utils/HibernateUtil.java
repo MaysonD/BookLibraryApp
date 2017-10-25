@@ -2,7 +2,6 @@ package utils;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.PersistenceUnit;
 
 public class HibernateUtil {
 

@@ -14,10 +14,10 @@ public class User {
     private int id;
 
     @Column(name = "user_name")
-    public String name;
+    private String name;
 
     @Column(name = "user_password")
-    public String password;
+    private String password;
 
     @OneToMany(mappedBy = "user", targetEntity = Book.class, cascade = {CascadeType.ALL}, orphanRemoval = true)
     private List<Book> books = new ArrayList<>();
